@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation?.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home -> {
-                    chooseFragment(FirstFragment(),"Home")
+                    chooseFragment(FirstFragment(),"home")
                 }
                 R.id.person -> {
-                    chooseFragment(SecondFragment(),"Person")
+                    chooseFragment(SecondFragment(),"person")
                 }
                 R.id.setting -> {
-                    chooseFragment(ThirdFragment(),"Setting")
+                    chooseFragment(ThirdFragment(),"setting")
                 }
 
             }
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun chooseFragment(fragment: androidx.fragment.app.Fragment,tag:String){
         val fragmentTransaction:androidx.fragment.app.FragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,FirstFragment(),"Home")
+        fragmentTransaction.replace(R.id.frameLayout,fragment,tag)
         fragmentTransaction.commit()
     }
 }
